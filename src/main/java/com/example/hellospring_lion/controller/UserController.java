@@ -2,13 +2,15 @@ package com.example.hellospring_lion.controller;
 
 import com.example.hellospring_lion.domain.User;
 import com.example.hellospring_lion.service.UserService;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 
 @Controller
 public class UserController {
-    @Autowired
+
     private UserService userService;
 
     public UserController() {
@@ -21,8 +23,9 @@ public class UserController {
         this.userService = userService;
     }
 
-
+    @Autowired
     public void setUserService(UserService userService) {
+        System.out.println("setUserService 실행 !!");
         this.userService = userService;
     }
 
@@ -34,5 +37,15 @@ public class UserController {
         user.setPassword("1111");
 
         userService.joinUser(user);
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("PostConstruct 실행!! ");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        System.out.println("빈이 소멸되기전에 호출된다. ");
     }
 }
