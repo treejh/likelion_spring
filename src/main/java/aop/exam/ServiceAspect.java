@@ -2,9 +2,11 @@ package aop.exam;
 
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -59,6 +61,21 @@ public class ServiceAspect {
     public void afterThrowing(Throwable ex){
         System.out.println("AfterTHrowing!!!");
         System.out.println("Exception value ::" + ex);
+    }
+
+    @Around("pc()")
+    public String around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
+        System.out.println("Around 사용 전 !!!!!!!!!!  실제 메서드 실행되기 전에 해야할일이 있다면 여기 !!! ");
+
+        String value= (String)proceedingJoinPoint.proceed();//실제 Target의 메서드 호출
+        System.out.println("Around 사용 후 !!!!!!!!!!  실제 메서드 후 실행된 후 해야할 일이 있다면 여기 !!! ");
+
+        value = "Around Test 해봤다 !!! ";
+
+        return value;
+
+
+
     }
 
 }
