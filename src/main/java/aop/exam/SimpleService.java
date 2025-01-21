@@ -13,10 +13,10 @@ public class SimpleService {
 
     public void hello(){
         System.out.println("hello() run..");
-        //예외추가
-        if(true){
-            throw  new RuntimeException();
-        }
+//        //예외추가
+//        if(true){
+//            throw  new RuntimeException();
+//        }
     }
 
     public void setName(String name){
