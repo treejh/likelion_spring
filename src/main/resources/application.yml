@@ -2,5 +2,15 @@ spring:
     application:
       name : hellospring
 
+    messages:
+      basename: messages
+      encoding: UTF-8
+      cache-duration: 0
+
+
+
 server:
   port: 8888
+
+
+

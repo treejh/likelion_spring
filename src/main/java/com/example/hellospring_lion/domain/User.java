@@ -1,5 +1,7 @@
 package com.example.hellospring_lion.domain;
 
+import lombok.Setter;
+
 public class User {
     private String name;
     private String email;
