@@ -3,7 +3,7 @@ package spring_jpa.ManyToMany;
 
 import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
-import org.example.jpa.JPAUtil;
+import spring_jpa.JPAUtil;
 
 @Slf4j
 public class EmployeeMAin {
