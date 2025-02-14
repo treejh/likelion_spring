@@ -1,4 +1,4 @@
-package OneToOne;
+package spring_jpa.OneToOne;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
