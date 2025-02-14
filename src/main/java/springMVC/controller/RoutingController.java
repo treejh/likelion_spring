@@ -2,6 +2,7 @@ package springMVC.controller;
 
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RoutingController {
 
     @GetMapping("/start")
-    public String startProcess(Model model){
+    public String startProcess(Model model,HttpServletRequest request){
         System.out.println("Start start!!!!!");
         model.addAttribute("forwardTest","jihyun");
+        request.setAttribute("test","testjihyun");
         return "forward:/forward";
     }
 
@@ -21,6 +23,7 @@ public class RoutingController {
         System.out.println("forward start!!!!");
         System.out.println("forwardTest ::::"+model.getAttribute("forwardTest"));
         System.out.println(request.getParameter("forwardTest"));
+        System.out.println(request.getParameter("test"));
         return "forwardPage";
     }
 
