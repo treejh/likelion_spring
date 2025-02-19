@@ -1,4 +1,4 @@
-package spring_jpa.ManyToMany;
+package spring_jpa_mapping.ManyToMany;
 
 
 import jakarta.persistence.Column;

@@ -1,8 +1,8 @@
-package spring_jpa.OneToOne;
+package spring_jpa_mapping.OneToOne;
 
 import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
-import spring_jpa.JPAUtil;
+import spring_jpa_mapping.JPAUtil;
 
 @Slf4j
 public class PersonMain {

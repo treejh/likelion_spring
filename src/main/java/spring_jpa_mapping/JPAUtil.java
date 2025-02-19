@@ -1,4 +1,4 @@
-package spring_jpa;
+package spring_jpa_mapping;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

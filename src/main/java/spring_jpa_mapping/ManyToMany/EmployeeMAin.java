@@ -1,9 +1,9 @@
-package spring_jpa.ManyToMany;
+package spring_jpa_mapping.ManyToMany;
 
 
 import jakarta.persistence.EntityManager;
 import lombok.extern.slf4j.Slf4j;
-import spring_jpa.JPAUtil;
+import spring_jpa_mapping.JPAUtil;
 
 @Slf4j
 public class EmployeeMAin {

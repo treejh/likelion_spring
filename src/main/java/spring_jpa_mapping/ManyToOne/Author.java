@@ -1,4 +1,4 @@
-package spring_jpa.ManyToOne;
+package spring_jpa_mapping.ManyToOne;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
