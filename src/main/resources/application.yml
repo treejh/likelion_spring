@@ -3,7 +3,7 @@ spring:
       name : hellospring
 
     datasource:
-      url: jdbc:mysql://localhost:3306/hr
+      url: jdbc:mysql://localhost:3306/jpadb
       username: chill
       password: chill
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,7 +15,7 @@ spring:
 
     jpa:
       hibernate:
-        ddl-auto: none
+        ddl-auto: update
       show-sql: true
       properties:
         hibernate:

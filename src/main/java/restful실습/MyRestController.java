@@ -31,7 +31,7 @@ public class MyRestController {
     }
 
 
-    @GetMapping(value = "/api/user", produces = "application/json")
+    //@GetMapping(value = "/api/user", produces = "application/json")
     public User getUser(@RequestParam(name="name")String name){
         return new User(name,"010-111-1111");
     }
