@@ -1,13 +1,11 @@
-package jpa실습.실습;
+package jpa실습.jpql실습;
 
 import java.util.List;
 import jpa실습.JPQL.User;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
 
 public interface JpaCustomerRepository extends JpaRepository<JpaCustomer,Long> {
 
@@ -17,6 +15,8 @@ public interface JpaCustomerRepository extends JpaRepository<JpaCustomer,Long> {
 
     //이메일로 조회
     List<JpaCustomer> findByEmail(String email);
+
+    List<JpaCustomer> findByEmailContaining(String email,Pageable pageable);
 
 
     //이메일에 특정 문자열을 포함 하고 있는 고객 조회

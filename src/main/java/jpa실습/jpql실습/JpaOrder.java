@@ -1,4 +1,4 @@
-package jpa실습.실습;
+package jpa실습.jpql실습;
 
 
 import jakarta.persistence.Entity;
@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "jpa_order")
