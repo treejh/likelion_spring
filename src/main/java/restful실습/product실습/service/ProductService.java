@@ -22,16 +22,14 @@ public class ProductService {
         if(productDTO.getName().isEmpty()||productDTO.getPrice()<=0){
             throw new RuntimeException("올바른 값을 넣어주세요");
         }
-        Product product = new Product(productDTO.getName(),productDTO.getPrice());
-        productRepository.save(product);
+        productRepository.save(new Product(productDTO.getName(),productDTO.getPrice()));
         return productDTO;
     }
 
     @Transactional
     public List<ProductDTO> getProducts(){
-        List<Product> productList = productRepository.findAll();
         List<ProductDTO> productDTOList = new ArrayList<>();
-        productList.forEach(data-> productDTOList.add(new ProductDTO(data)));
+        productRepository.findAll().forEach(data-> productDTOList.add(new ProductDTO(data)));
 
         return productDTOList;
     }
