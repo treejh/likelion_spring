@@ -46,7 +46,6 @@ public class TodoController {
     @DeleteMapping
     public ResponseEntity<Void> deleteTodo(@RequestBody Todo todo){
         todoService.deleteTodo(todo.getId());
-
         return ResponseEntity.noContent().build();
     }
 
