@@ -8,6 +8,11 @@ spring:
       password: chill
       driver-class-name: com.mysql.cj.jdbc.Driver
 
+    servlet:
+      multipart:
+        max-file-size: 2MB
+        max-request-size: 4MB
+
     messages:
       basename: messages
       encoding: UTF-8

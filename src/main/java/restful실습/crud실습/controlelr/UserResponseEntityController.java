@@ -1,4 +1,4 @@
-package restful실습.controlelr;
+package restful실습.crud실습.controlelr;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import restful실습.domain.User;
+import restful실습.crud실습.domain.User;
 
 public class UserResponseEntityController {
     private final Map<Long, User> users = new HashMap<>();

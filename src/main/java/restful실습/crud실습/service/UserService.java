@@ -1,11 +1,11 @@
-package restful실습.service;
+package restful실습.crud실습.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import restful실습.UserRepository;
-import restful실습.domain.User;
+import restful실습.기본개념실습.UserRepository;
+import restful실습.crud실습.domain.User;
 
 @Service
 @RequiredArgsConstructor

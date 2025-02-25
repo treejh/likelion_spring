@@ -1,10 +1,7 @@
-package restful실습.controlelr;
+package restful실습.crud실습.controlelr;
 
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import restful실습.domain.User;
-import restful실습.service.UserService;
+import restful실습.crud실습.domain.User;
+import restful실습.crud실습.service.UserService;
 
 @RestController
 @RequiredArgsConstructor

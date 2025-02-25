@@ -1,4 +1,4 @@
-package restful실습.domain;
+package restful실습.crud실습.domain;
 
 import lombok.Getter;
 import lombok.Setter;
