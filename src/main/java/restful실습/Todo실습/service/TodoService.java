@@ -4,8 +4,7 @@ package restful실습.Todo실습.service;
 import jakarta.persistence.EntityNotFoundException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class TodoService {
        return todoRepository.findAll(Sort.by("id").descending());
     }
 
-
+    @Transactional
     public Todo updateTodo(Long id){
         Todo updateTodo = todoRepository.findById(id)
                 .orElseThrow(()-> new EntityNotFoundException("Todo를 찾을 수 없습니다 "+ id));
@@ -46,10 +45,10 @@ public class TodoService {
 //        }
         updateTodo.setDone(!updateTodo.isDone());
 
-        return todoRepository.save(updateTodo);
+        return updateTodo;
 
     }
-
+    @Transactional
     public void deleteTodo(Long id){
         Todo deleteTodo = todoRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Todo를 찾을 수 없습니다 "+ id));

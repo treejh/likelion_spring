@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,8 @@ public class TodoController {
 
     @PostMapping
     public ResponseEntity<Todo> createTodo(@RequestBody Todo todo){
-        return ResponseEntity.ok(todoService.createTodo(todo));
+        //return ResponseEntity.ok(todoService.createTodo(todo));
+        return ResponseEntity.status(HttpStatus.CREATED).body(todoService.createTodo(todo));
     }
 
     @GetMapping
@@ -43,9 +45,14 @@ public class TodoController {
 
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> deleteTodo(@RequestBody Todo todo){
-        todoService.deleteTodo(todo.getId());
+//    @DeleteMapping
+//    public ResponseEntity<Void> deleteTodo(@RequestBody Todo todo){
+//        todoService.deleteTodo(todo.getId());
+//        return ResponseEntity.noContent().build();
+//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTodo(@PathVariable("id") Long id){
+        todoService.deleteTodo(id);
         return ResponseEntity.noContent().build();
     }
 
