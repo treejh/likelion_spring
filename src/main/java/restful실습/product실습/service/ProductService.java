@@ -29,7 +29,8 @@ public class ProductService {
     @Transactional
     public List<ProductDTO> getProducts(){
         List<ProductDTO> productDTOList = new ArrayList<>();
-        productRepository.findAll().forEach(data-> productDTOList.add(new ProductDTO(data)));
+        productRepository.findAll().forEach(
+                data-> productDTOList.add(new ProductDTO(data)));
 
         return productDTOList;
     }
@@ -44,6 +45,9 @@ public class ProductService {
 
     @Transactional
     public ProductDTO updateProduct(Long id,ProductDTO productDTO){
+        if(productDTO.getName().isEmpty()||productDTO.getPrice()<=0){
+            throw new RuntimeException("올바른 값을 넣어주세요");
+        }
         Product product = productRepository.findById(id)
                 .orElseThrow(()->new EntityNotFoundException("수정할 제품을 찾을 수 없습니다"));
 
