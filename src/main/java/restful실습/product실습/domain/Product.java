@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,8 +25,9 @@ public class Product {
     private String name;
     private double price;
 
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
+    public Product(ProductDTO productDTO) {
+        this.name = productDTO.getName();
+        this.price = productDTO.getPrice();
     }
+
 }

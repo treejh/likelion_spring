@@ -22,7 +22,10 @@ public class ProductService {
         if(productDTO.getName().isEmpty()||productDTO.getPrice()<=0){
             throw new RuntimeException("올바른 값을 넣어주세요");
         }
-        productRepository.save(new Product(productDTO.getName(),productDTO.getPrice()));
+        //builder 사용 안할때
+        productRepository.save(new Product(productDTO));
+
+        //builder 사용 할때
         return productDTO;
     }
 
