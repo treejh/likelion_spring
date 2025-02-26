@@ -27,11 +27,6 @@ public class BuildProduct {
     private String name;
     private double price;
 
-    public BuildProduct(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
     //DTO -> entity로 변환하는 메서드
     public static BuildProduct formDTO(BuildProductDTO BuildProductDO){
         return BuildProduct.builder()
