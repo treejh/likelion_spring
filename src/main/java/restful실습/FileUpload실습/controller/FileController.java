@@ -15,8 +15,10 @@ import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import restful실습.FileUpload실습.domain.UploadInfo;
 
 @RestController
 @Slf4j
@@ -45,11 +47,12 @@ public class FileController {
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(
-            @RequestParam("file") MultipartFile file
-            //@RequestParam(name="info",required = false) UploadInfo uploadInfo
+            @RequestPart("file") MultipartFile file,
+            @RequestPart(name="info",required = false) UploadInfo uploadInfo
     ){
 
         log.info(file.getOriginalFilename());
+        log.info(uploadInfo.getDescription()+":::"+uploadInfo.getTag());
 
         try(InputStream inputStream = file.getInputStream()){
 //            StreamUtils.copy(inputStream,
