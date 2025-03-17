@@ -1,5 +1,6 @@
 package restful실습.product실습.controller;
 
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +32,7 @@ public class BuildProductController {
     }
 
     @PostMapping
-    public ResponseEntity<BuildProductDTO> postProduct(@RequestBody BuildProductDTO buildProductDTO){
+    public ResponseEntity<BuildProductDTO> postProduct(@Valid @RequestBody BuildProductDTO buildProductDTO){
         return ResponseEntity.ok(buildProductService.createProduct(buildProductDTO));
     }
 
