@@ -32,4 +32,31 @@ class UserServiceTest {
         assertEquals("회원가입 성공!!",response);
         assertTrue(userRepository.findByEmailAndName(user.getEmail(),user.getName()).isPresent());
     }
+
+    @Test
+    @DisplayName("회원가입 - 이메일 중복 실행")
+    void register_EmailFail(){
+        String email = "test@example.com";
+        String name = "testCase";
+
+        //기존 사용자 저장
+        User existingUser = new User();
+        existingUser.setEmail(email);
+        existingUser.setName(name);
+        userRepository.save(existingUser);
+
+
+        //동일한 이메일로 회원가입 테스트
+        User newUser = new User();
+        newUser.setEmail(email);
+        newUser.setName(name);
+        String response = userService.addUser22(newUser);
+        assertEquals("이미 존재하는 아이디입니다.",response);
+
+
+    }
+
+
+
+
 }

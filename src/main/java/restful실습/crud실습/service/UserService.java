@@ -41,6 +41,9 @@ public class UserService {
     @Transactional
     public String addUser22(User user){
         try {
+            if(repository.findByEmailAndName(user.getEmail(),user.getName()).isPresent()){
+                return "이미 존재하는 아이디입니다.";
+            }
             repository.save(user);
             return "회원가입 성공!!";
         } catch (Exception e) {
