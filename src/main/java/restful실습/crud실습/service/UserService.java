@@ -39,6 +39,16 @@ public class UserService {
     }
 
     @Transactional
+    public String addUser22(User user){
+        try {
+            repository.save(user);
+            return "회원가입 성공!!";
+        } catch (Exception e) {
+            throw new RuntimeException("사용자 추가 실패 :: "+e.getMessage(), e);
+        }
+    }
+
+    @Transactional
     public User updateUser(User user){
         if(user.getId() == null){
             throw new IllegalArgumentException("사용자 ID는 필수입니다.");
